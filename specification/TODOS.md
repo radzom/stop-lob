@@ -2,18 +2,18 @@
 
 ## 1. Seed Data / Club Setup
 - [ ] Mutation to initialize `clubSettings`
-- [ ] Create first admin role
+- [x] Create first admin role
 
 ## 2. Player Management
 - [ ] Create player (admin)
-- [ ] Update player profile
+- [x] Update player profile
 - [ ] Deactivate player
-- [ ] Claim profile (player links their auth account)
+- [x] Claim profile (player links their auth account)
 
 ## 3. Ranking Management
-- [ ] Create ranking category (admin)
-- [ ] Update ranking category
-- [ ] List active rankings (query)
+- [x] Create ranking category (admin)
+- [x] Update ranking category
+- [x] List active rankings (query)
 
 ## 4. Join / Leave Ranking
 - [ ] Add player to ranking (append to `rankingPositions`, write `player_joined` event)
@@ -40,12 +40,15 @@
 - [ ] Match history UI
 
 ## 9. Auth & Roles
-- [ ] Wire up email/password auth
-- [ ] Profile claiming flow
-- [ ] Role-based access checks on mutations (admin, moderator per ranking)
+- [x] Wire up email/password auth
+- [x] Profile claiming flow
+- [x] Role-based access checks on mutations (admin, moderator per ranking)
 
 ## 10. UI
 - [ ] Pyramid visualization
 - [ ] Challenge flow screens
 - [ ] Player profile pages
 - [ ] Admin panel (manage players, rankings, settings)
+- [x] Rankings list (home page)
+- [x] Create ranking form (admin)
+- [x] Ranking detail page (stub)

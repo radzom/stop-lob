@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="24" fill="#216331"/>
+  <!-- Stop curve (short, drops fast) -->
+  <path d="M20 85 Q35 30, 55 75" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <!-- Lob curve (high arc) -->
+  <path d="M55 75 Q75 10, 100 80" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+  <!-- Ball at stop landing -->
+  <circle cx="55" cy="75" r="6" fill="white" stroke="#bddfbe" stroke-width="1.5"/>
+  <!-- Net line -->
+  <line x1="55" y1="90" x2="55" y2="60" stroke="white" stroke-width="1.5" opacity="0.3" stroke-dasharray="3 3"/>
+  <!-- Ground line -->
+  <line x1="15" y1="90" x2="105" y2="90" stroke="white" stroke-width="1.5" opacity="0.2"/>
+  <!-- S & L text -->
+  <text x="60" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="white" opacity="0.6">S &amp; L</text>
+</svg>

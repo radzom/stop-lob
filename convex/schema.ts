@@ -5,17 +5,13 @@ import { authTables } from "@convex-dev/auth/server";
 export default defineSchema({
   ...authTables,
 
-  numbers: defineTable({
-    value: v.number(),
-  }),
-
   // Player profiles — linked to auth via userId (optional until claimed)
   players: defineTable({
     userId: v.optional(v.id("users")),
     firstName: v.string(),
     lastName: v.string(),
     email: v.string(),
-    phone: v.string(),
+    phone: v.optional(v.string()),
     yearOfBirth: v.number(),
     gender: v.union(v.literal("male"), v.literal("female")),
     profilePictureUrl: v.optional(v.string()),
@@ -49,8 +45,8 @@ export default defineSchema({
     name: v.string(),
     description: v.optional(v.string()),
     genderFilter: v.optional(v.union(v.literal("male"), v.literal("female"))),
-    minYearOfBirth: v.optional(v.number()),
-    maxYearOfBirth: v.optional(v.number()),
+    minAge: v.optional(v.number()),
+    maxAge: v.optional(v.number()),
     isActive: v.boolean(),
   }),
 
@@ -86,6 +82,7 @@ export default defineSchema({
         ),
         datePlayed: v.string(),
         isWalkover: v.boolean(),
+        adminResolved: v.optional(v.boolean()),
         timestamp: v.number(),
       }),
       v.object({
@@ -127,6 +124,8 @@ export default defineSchema({
     challengedId: v.id("players"),
     status: v.union(
       v.literal("pending"),
+      v.literal("result_reported"),
+      v.literal("disputed"),
       v.literal("completed"),
       v.literal("expired"),
       v.literal("forfeited"),
@@ -139,6 +138,46 @@ export default defineSchema({
     resolvedAt: v.optional(v.number()),
     // Deadline: 15 days from creation
     expiresAt: v.number(),
+    // Who forfeited (if status is "forfeited")
+    forfeitedBy: v.optional(v.id("players")),
+    // Result reporting (set when status moves to "result_reported")
+    reportedBy: v.optional(v.id("players")),
+    reportedResult: v.optional(
+      v.object({
+        winnerId: v.id("players"),
+        loserId: v.id("players"),
+        sets: v.array(
+          v.object({
+            winnerScore: v.number(),
+            loserScore: v.number(),
+            isTiebreak: v.boolean(),
+          })
+        ),
+        datePlayed: v.string(),
+        isWalkover: v.boolean(),
+      })
+    ),
+    // Counter-result (set when the non-reporter disputes)
+    counterReportedBy: v.optional(v.id("players")),
+    counterResult: v.optional(
+      v.object({
+        winnerId: v.id("players"),
+        loserId: v.id("players"),
+        sets: v.array(
+          v.object({
+            winnerScore: v.number(),
+            loserScore: v.number(),
+            isTiebreak: v.boolean(),
+          })
+        ),
+        datePlayed: v.string(),
+        isWalkover: v.boolean(),
+      })
+    ),
+    // Admin who resolved a dispute (if status changed via admin)
+    resolvedBy: v.optional(v.id("users")),
+    // Which result the admin chose ("reported" or "counter")
+    resolvedResult: v.optional(v.union(v.literal("reported"), v.literal("counter"))),
   })
     .index("by_rankingId_and_status", ["rankingId", "status"])
     .index("by_challengerId_and_status", ["challengerId", "status"])

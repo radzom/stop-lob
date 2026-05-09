@@ -1,22 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --color-light: #ffffff;
-  --color-dark: #171717;
+  --color-page: #f4f8f1;
+  --color-ink-950: #0d1310;
+  --color-ink-900: #18211b;
+  --color-ink-700: #3a4a40;
+  --color-brand-50: #f0f8f1;
+  --color-brand-100: #dbeedb;
+  --color-brand-200: #bddfbe;
+  --color-brand-300: #97cf9a;
+  --color-brand-400: #6fb876;
+  --color-brand-500: #4b9b58;
+  --color-brand-600: #3a8347;
+  --color-brand-700: #216331;
+  --color-brand-800: #184926;
+  --color-brand-900: #0f3018;
+  --font-display: "Archivo", "Avenir Next", "Trebuchet MS", sans-serif;
+  --font-body: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    color: var(--color-light);
-    background: var(--color-dark);
-    font-family: Arial, Helvetica, sans-serif;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-ink-900);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(75, 155, 88, 0.2), transparent 36%),
+    radial-gradient(circle at 100% 0%, rgba(33, 99, 49, 0.16), transparent 32%),
+    linear-gradient(180deg, #f8fbf5 0%, #edf5eb 100%);
+  font-family: var(--font-body);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.auth-grid-bg {
+  background-image: none;
+}
+
+@media (min-width: 768px) {
+  .auth-grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)),
+      linear-gradient(rgba(24, 73, 38, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(24, 73, 38, 0.07) 1px, transparent 1px);
+    background-size: auto, 28px 28px, 28px 28px;
+    background-position: 0 0, 0 0, 0 0;
   }
 }
 
-@media (prefers-color-scheme: light) {
-  body {
-    color: var(--color-dark);
-    background: var(--color-light);
-    font-family: Arial, Helvetica, sans-serif;
+.auth-accent-glow {
+  position: absolute;
+  top: -8rem;
+  right: -5rem;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(75, 155, 88, 0.22) 0%, rgba(75, 155, 88, 0) 70%);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -24,7 +24,7 @@ Row 4:    [7, 8, 9, 10]
 The app supports **multiple ranking categories** (e.g. "Men's Open", "Women's 40+"). Each ranking is defined by an admin with optional filters:
 
 - **Gender filter** (male / female)
-- **Year of birth range** (min / max)
+- **Age range** (min / max)
 
 A player can participate in **multiple rankings** simultaneously.
 

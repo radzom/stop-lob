@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="24" fill="#216331"/>
+  <!-- S -->
+  <text x="22" y="78" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="56" fill="white">S</text>
+  <!-- & as tennis ball -->
+  <circle cx="64" cy="60" r="14" fill="white" stroke="#bddfbe" stroke-width="2"/>
+  <path d="M54 52 C58 60, 58 64, 54 72" fill="none" stroke="#4b9b58" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M74 52 C70 60, 70 64, 74 72" fill="none" stroke="#4b9b58" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- L -->
+  <text x="80" y="78" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="56" fill="white">L</text>
+</svg>

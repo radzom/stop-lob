@@ -14,3 +14,10 @@ Convex agent skills for common tasks can be installed by running
 
 The target for this project is to build an app that is described in `specification/Vision.md`.
 
+The app must be mobile first.
+
+For styling tailwind shall be used.
+
+Generated code should use english names for function and variables.
+
+The user interface shall be in german.
