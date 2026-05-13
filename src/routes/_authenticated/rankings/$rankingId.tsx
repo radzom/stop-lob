@@ -158,6 +158,7 @@ function JoinLeaveButton({
   const leaveRanking = useMutation(api.rankingParticipation.leave);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [showLeaveConfirm, setShowLeaveConfirm] = useState(false);
 
   // Still loading data
   if (positions === undefined || profile === undefined) {
@@ -184,8 +185,6 @@ function JoinLeaveButton({
       );
     }
   }
-
-  const [showLeaveConfirm, setShowLeaveConfirm] = useState(false);
 
   const handleAction = (action: "join" | "leave") => {
     setErrorMessage(null);
