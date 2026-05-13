@@ -1,1 +1,2 @@
-/* /index.html 200
+# Cloudflare Pages serves index.html for non-asset paths by default (SPA mode).
+# No explicit redirect rules needed.
