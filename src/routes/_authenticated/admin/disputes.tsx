@@ -140,10 +140,6 @@ function AdminDisputesPage() {
               result.winnerId === dispute.challengerId
                 ? dispute.challengerName
                 : dispute.challengedName;
-            const getLoserName = (result: ResultSummary) =>
-              result.loserId === dispute.challengerId
-                ? dispute.challengerName
-                : dispute.challengedName;
 
             return (
               <div
