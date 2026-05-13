@@ -24,17 +24,12 @@ type ResultSummary = {
 
 function formatResult(
   result: ResultSummary,
-  reporterName: string,
   winnerName: string,
-  loserName: string,
 ) {
-  if (result.isWalkover) {
-    return `Walkover — ${winnerName} gewinnt`;
-  }
   const setsStr = result.sets
     .map((s) => `${s.winnerScore}:${s.loserScore}`)
     .join(", ");
-  return `${setsStr} — ${winnerName} gewinnt`;
+  return `${setsStr}${result.isWalkover ? " WO" : ""} — ${winnerName} gewinnt`;
 }
 
 function AdminDisputesPage() {
@@ -177,9 +172,7 @@ function AdminDisputesPage() {
                     <p className="text-sm text-ink-900">
                       {formatResult(
                         reportedResult,
-                        dispute.reporterName,
                         getWinnerName(reportedResult),
-                        getLoserName(reportedResult),
                       )}
                     </p>
                     <p className="text-xs text-ink-500">
@@ -209,9 +202,7 @@ function AdminDisputesPage() {
                     <p className="text-sm text-ink-900">
                       {formatResult(
                         counterResult,
-                        dispute.counterReporterName,
                         getWinnerName(counterResult),
-                        getLoserName(counterResult),
                       )}
                     </p>
                     <p className="text-xs text-ink-500">

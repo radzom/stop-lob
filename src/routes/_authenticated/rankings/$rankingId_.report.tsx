@@ -109,19 +109,6 @@ function ReportResultPage() {
     return null;
   };
 
-  // Check if we need a 3rd set
-  const needsThirdSet = (): boolean => {
-    if (sets.length < 2) return false;
-    const s1a = parseInt(sets[0].player1Score, 10);
-    const s1b = parseInt(sets[0].player2Score, 10);
-    const s2a = parseInt(sets[1].player1Score, 10);
-    const s2b = parseInt(sets[1].player2Score, 10);
-    if (isNaN(s1a) || isNaN(s1b) || isNaN(s2a) || isNaN(s2b)) return false;
-    const p1First = s1a > s1b ? 1 : 0;
-    const p1Second = s2a > s2b ? 1 : 0;
-    return p1First + p1Second === 1; // 1-1 in sets
-  };
-
   const updateSet = (index: number, field: "player1Score" | "player2Score", value: string) => {
     const updated = [...sets];
     updated[index] = { ...updated[index], [field]: value };
